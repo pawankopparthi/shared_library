@@ -30,7 +30,7 @@ def call() {
 
     withCredentials([
       [$class: 'UsernamePasswordMultiBinding',
-        credentialsId: "newgithubid",
+        credentialsId: "github_cred",
         usernameVariable: 'scmUser',
         passwordVariable: 'scmPassword'
       ],
@@ -94,20 +94,20 @@ def call() {
         }
         stage("create-scm-repo") {
          sh '''
-         curl -k POST -u $scmUser:$scmPassword https://github.hdfcbankuat.com/api/v3/orgs/ALCMAPIGEEUAT/repos -d '{"name":"'${ApiName}'","public":true}'
+         curl -k POST -u $scmUser:$scmPassword https://github.com/api/v3/orgs/pawankopparthi/repos -d '{"name":"'${ApiName}'","public":true}'
          '''
     }
 
       stage("Code-push") {
         dir("target/${Apiname}") {
           // def defRepURL= scmCloneURL.split("@")[1]
-          def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.hdfcbankuat.com/ALCMAPIGEEUAT/${Apiname}"
+          def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.com/pawankopparthi/${Apiname}"
           runCommand "pwd"
           runCommand "ls -la"
           runCommand "git init"
           runCommand "git add ."
           runCommand "git config --global user.email  pawan.kopparthi@hdfcbank.com"
-          runCommand "git config --global user.name UATHYCESIDGSE354"
+          runCommand "git config --global user.name pawankopparthi"
           runCommand "git commit -m intial-commit"
           runCommand "git remote add origin ${scmCloneURLFinal}"
           runCommand "git push -u origin master"
