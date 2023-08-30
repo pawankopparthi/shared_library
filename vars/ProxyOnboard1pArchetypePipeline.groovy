@@ -33,12 +33,8 @@ def call() {
         credentialsId: "github_cred",
         usernameVariable: 'scmUser',
         passwordVariable: 'scmPassword'
-      ],
-      [$class: 'UsernamePasswordMultiBinding',
-        credentialsId: "git_test1_oauth",
-        usernameVariable: 'scmClient',
-        passwordVariable: 'scmSecret'
-      ],
+      ]
+      
 
     ]) {
 
