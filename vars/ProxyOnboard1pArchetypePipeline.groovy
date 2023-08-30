@@ -94,7 +94,7 @@ def call() {
         }
         stage("create-scm-repo") {
          sh '''
-         curl -k POST -u $scmUser:$scmPassword https://github.com/api/v3/orgs/pawankopparthi/repos -d '{"name":"'${ApiName}'","public":true}'
+         curl -k POST -u $scmUser:$scmPassword https://api.github.com/v3/orgs/pawankopparthi/repos -d '{"name":"'${ApiName}'","public":true}'
          '''
     }
 
