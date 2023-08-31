@@ -97,7 +97,7 @@ def call() {
       stage("Code-push") {
         dir("target/${Apiname}") {
           // def defRepURL= scmCloneURL.split("@")[1]
-          def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.com/pawankopparthi/${Apiname}"
+          def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.com/pawansidgs/${Apiname}"
           runCommand "pwd"
           runCommand "ls -la"
           runCommand "git init"
