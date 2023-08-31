@@ -166,7 +166,7 @@ void createRelease(String api ) {
             "Stopping Job "
   }
   runGitflowCommands("-DallowSnapshots=true -DautoVersionSubmodules=true " +
-          "-DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true -Djavax.net.ssl.trustStore=/opt/sonar-scanner-4.2.0.1873-linux/jre/lib/security/cacerts -Djavax.net.ssl.trustStorePassword=changeit", "jgitflow:release-start -X" )
+          "-DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true", "jgitflow:release-start -X" )
 
 }
 
