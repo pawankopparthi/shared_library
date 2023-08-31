@@ -24,18 +24,18 @@ This pipeline is used for handling branch management on the repos
  */
 def call(String operation,String repoProjectName) {
 
-    node("master") {
+    node() {
         deleteDir()
         def shell = new shell()
         try {
 
             withCredentials([
                     [$class          : 'UsernamePasswordMultiBinding',
-                     credentialsId   : "newgithubid",
+                     credentialsId   : "github_cred",
                      usernameVariable: 'scmUser',
                      passwordVariable: 'scmPassword'],
                     [$class          : 'UsernamePasswordMultiBinding',
-                     credentialsId   : "git_test1_oauth",
+                     credentialsId   : "github_cred",
                      usernameVariable: 'scmClient',
                      passwordVariable: 'scmSecret'],
             ])
@@ -70,7 +70,7 @@ def call(String operation,String repoProjectName) {
 
                         stage('Checkout') {
                             //wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: scmAccessToken, var: 'SECRET']]]) {
-                              shell.pipe("git clone https://${scmUser}:${scmPassword}@github.hdfcbankuat.com/ALCMAPIGEEUAT/${ApiName}.git")
+                              shell.pipe("git clone https://${scmUser}:${scmPassword}@github.com/pawansidgs/${ApiName}.git")
                                 shell.pipe("ls -la")
                                 shell.pipe("pwd")
                               shell.pipe("cd ${ApiName} ")
@@ -161,7 +161,7 @@ def runCommand(String command) {
     if (!isUnix()) {
         println command
         if (command.trim().toLowerCase().startsWith("mvn")) {
-            withMaven(globalMavenSettingsConfig: 'jfrog2', maven: 'maven') {
+            withMaven(globalMavenSettingsConfig: 'jfrog', maven: 'maven') {
                 bat returnStdout: true, script: "${command}"
             }
         } else {
@@ -171,7 +171,7 @@ def runCommand(String command) {
     } else {
         println command
         if (command.trim().toLowerCase().startsWith("mvn")) {
-            withMaven(globalMavenSettingsConfig: 'jfrog2', maven: 'maven') {
+            withMaven(globalMavenSettingsConfig: 'jfrog', maven: 'maven') {
                 sh returnStdout: true, script: command
             }
         } else {
