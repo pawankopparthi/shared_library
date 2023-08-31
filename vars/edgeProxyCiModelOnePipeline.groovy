@@ -20,7 +20,7 @@ This pipeline is used to perform CI on sharedflows
 
 def call(String branchType, String build_number) {
 
-  node ("master") {
+  node () {
     
  
     deleteDir()
