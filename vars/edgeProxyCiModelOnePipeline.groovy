@@ -26,7 +26,7 @@ def call(String branchType, String build_number) {
     deleteDir()
     try {
 	   
-      stage('access-token') {
+      /*stage('access-token') {
 			withCredentials([file(credentialsId: 'hdfcbank-apigee-runtime-dev', variable: 'serviceAccount')]) {
                             script {
                                git branch: 'master', credentialsId: 'newgithubid', url: 'https://github.hdfcbankuat.com/ALCMAPIGEEUAT/token-repo.git'
@@ -48,9 +48,9 @@ def call(String branchType, String build_number) {
                             //env.access = access_token
                             //echo "${env.access}"
                     }
-                  }
-                        def token = readFile"${env.WORKSPACE}/token"
-			                  def bearer = readFile"${env.WORKSPACE}/token"
+                  }*/
+                     //    def token = readFile"${env.WORKSPACE}/token"
+			                  // def bearer = readFile"${env.WORKSPACE}/token"
 
       stage('Checkout') {
         checkout scm
