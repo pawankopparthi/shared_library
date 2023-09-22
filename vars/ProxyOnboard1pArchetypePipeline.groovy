@@ -26,7 +26,7 @@ def call() {
 
   def scmCloneURL
 
-  node () {
+  node ('apigee') {
 
     withCredentials([
       [$class: 'UsernamePasswordMultiBinding',
