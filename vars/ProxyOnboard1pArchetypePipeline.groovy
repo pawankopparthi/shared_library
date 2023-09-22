@@ -63,10 +63,11 @@ def call() {
         //def nodeHome = tool name: DefaultConfigService.instance.tools.nodejs, type: 'Node16'
 
         //Not required as maven is fixed using runCommand in below function
+        def mvnHome = '/usr/share/maven'
         // def mvnHome = tool name: DefaultConfigService.instance.tools.maven, type: 'maven'
 
-        // echo "Maven Home is ${mvnHome}"
-        // def mvnExecutable = "${mvnHome}/usr/share/maven"
+        echo "Maven Home is ${mvnHome}"
+        def mvnExecutable = "${mvnHome}/usr/share/maven"
 
        def exampleApi = "mvn archetype:generate " +
             "-DarchetypeGroupId=com.hdfc.apigee.archetype.poc " +
