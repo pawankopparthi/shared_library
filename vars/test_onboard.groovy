@@ -123,7 +123,7 @@ def call() {
     catch (any) {
       println any.toString()
       currentBuild.result = 'FAILURE'
-      DeploymentInfoService.instance.saveDeploymentStatus("FAILURE", env.BUILD_URL, getUsernameForBuild())
+      //DeploymentInfoService.instance.saveDeploymentStatus("FAILURE", env.BUILD_URL, getUsernameForBuild())
     }
   }
 }
