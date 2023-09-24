@@ -76,7 +76,7 @@ def call() {
             "-DartifactId=${params.ApiName} " +
             "-Dpackage=com.hdfc.api " +
             "-DApiName=${params.ApiName} " +
-            "-DinteractiveMode=false"
+            "-DinteractiveMode=false " -s $settings_file
         
         def appUrl = "${env.BUILD_URL}ws"
 
