@@ -65,7 +65,7 @@ def call() {
         //Not required as maven is fixed using runCommand in below function
        // def mvnHome = tool name: DefaultConfigService.instance.tools.maven, type: 'maven'
 
-        echo "Maven Home is ${mvnHome}"
+       // echo "Maven Home is ${mvnHome}"
         def mvnExecutable = "${mvnHome}/usr/share/maven"
 
        def exampleApi = "mvn archetype:generate " +
