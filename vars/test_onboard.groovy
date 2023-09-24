@@ -74,7 +74,7 @@ def call() {
             "-DarchetypeVersion=1.0.0-SNAPSHOT " +
             "-DgroupId=com.hdfc.api.commons " +
             "-DartifactId=${params.ApiName} " +
-            "-Dpackage=com.hdfc.api " +
+            "-Dpackage=com.hdfc.api.commons " +
             "-DApiName=${params.ApiName} " +
             "-DinteractiveMode=false " +
          "-s $settings_file"
