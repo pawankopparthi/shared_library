@@ -86,7 +86,7 @@ def call() {
         stage("arche-type-generate") {
 
           dir('target') {
-            runCommand "${exampleApi}"
+            sh "${exampleApi}"
           }
         }
         stage("create-scm-repo") {
