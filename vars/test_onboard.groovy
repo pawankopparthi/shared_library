@@ -172,7 +172,7 @@ def runCommand(String command) {
     println command
     if (command.trim().toLowerCase().startsWith("mvn")) {
        def mavenToolName = 'Maven 3.9.4'
-      def mavenTool = tool name: '$mavenToolName', type: 'hudson.tasks.Maven'
+      def mavenTool = tool name: mavenToolName, type: 'hudson.tasks.Maven'
       withEnv(["M2_HOME=${mavenTool}"]) {
         sh "${mavenTool}/bin/mvn ${command}"
       }
@@ -184,7 +184,7 @@ def runCommand(String command) {
     println command
     if (command.trim().toLowerCase().startsWith("mvn")) {
        def mavenToolName = 'Maven 3.9.4'
-      def mavenTool = tool name: '$mavenToolName', type: 'hudson.tasks.Maven'
+      def mavenTool = tool name: mavenToolName, type: 'hudson.tasks.Maven'
        withEnv(["M2_HOME=${mavenTool}"]) {
         sh "${mavenTool}/bin/mvn ${command}"
       }
