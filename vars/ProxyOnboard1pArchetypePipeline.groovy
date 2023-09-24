@@ -66,7 +66,7 @@ def call() {
        // def mvnHome = tool name: DefaultConfigService.instance.tools.maven, type: 'maven'
 
        // echo "Maven Home is ${mvnHome}"
-        def mvnExecutable = "${mvnHome}/usr/share/maven"
+        def settings_file = "/usr/share/maven/conf/settings.xml"
 
        def exampleApi = "mvn archetype:generate " +
             "-DarchetypeGroupId=com.hdfc.apigee.archetype.poc " +
@@ -171,7 +171,7 @@ def runCommand(String command) {
   if (!isUnix()) {
     println command
     if (command.trim().toLowerCase().startsWith("mvn")) {
-      withMaven(globalMavenSettingsConfig: 'jfrog', maven: 'maven') {
+      withMaven(globalMavenSettingsConfig: '$settings_file', maven: 'maven') {
         bat returnStdout: true, script: "${command}"
       }
     } else {
@@ -181,7 +181,7 @@ def runCommand(String command) {
   } else {
     println command
     if (command.trim().toLowerCase().startsWith("mvn")) {
-      withMaven(globalMavenSettingsConfig: 'jfrog', maven: 'maven') {
+      withMaven(globalMavenSettingsConfig: '$settings_file', maven: 'maven') {
         sh returnStdout: true, script: command
       }
     } else {
