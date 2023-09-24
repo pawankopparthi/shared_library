@@ -26,7 +26,7 @@ def call() {
 
   def scmCloneURL
 
-  node ('apigee') {
+  node () {
 
     withCredentials([
       [$class: 'UsernamePasswordMultiBinding',
@@ -171,10 +171,10 @@ def runCommand(String command) {
   if (!isUnix()) {
     println command
     if (command.trim().toLowerCase().startsWith("mvn")) {
-      def mavenTool = tool name: 'Maven', type: 'hudson.tasks.Maven'
-      //withMaven(globalMavenSettingsConfig: '$settings_file', maven: 'maven') {
+      //def mavenTool = tool name: 'Maven', type: 'hudson.tasks.Maven'
+      withMaven(globalMavenSettingsConfig: '$settings_file', maven: 'maven') {
         bat returnStdout: true, script: "${command}"
-      //}
+      }
     } else {
 
       bat returnStdout: true, script: "${command}"
@@ -182,10 +182,10 @@ def runCommand(String command) {
   } else {
     println command
     if (command.trim().toLowerCase().startsWith("mvn")) {
-      def mavenTool = tool name: 'Maven', type: 'hudson.tasks.Maven'
-      //withMaven(globalMavenSettingsConfig: '$settings_file', maven: 'maven') {
+     // def mavenTool = tool name: 'Maven', type: 'hudson.tasks.Maven'
+      withMaven(globalMavenSettingsConfig: '$settings_file', maven: 'maven') {
         sh returnStdout: true, script: command
-      //}
+      }
     } else {
       sh returnStdout: true, script: command
     }
