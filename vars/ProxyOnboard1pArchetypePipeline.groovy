@@ -42,12 +42,12 @@ def call() {
 
         BootStrapConfigLoad configLoad = new BootStrapConfigLoad();
         try {
-          echo "API_SERVER_LOCATION: ${env.API_SERVER_LOCATION}"
+          //echo "API_SERVER_LOCATION: ${env.API_SERVER_LOCATION}"
           scmAPILocation = env.API_SCM_LOCATION
           scmOauthServerLocation = env.API_SCM_OAUTH_SERVER
           // apiManageServerURL = env.API_MANAGESERVER_LOCATION
           apiManageOauthURL = env.API_MANAGESERVER_OAUTH_LOCATION
-          configLoad.setupConfig("${env.API_SERVER_LOCATION}")
+          //configLoad.setupConfig("${env.API_SERVER_LOCATION}")
         } catch (MalformedURLException e) {
           e.printStackTrace();
         }
