@@ -5,11 +5,11 @@ import hudson.model.Cause
 import groovy.json.JsonSlurper
 import pom
 import com.apigee.boot.Pipeline
-import com.apigee.cicd.service.CIEnvInfoService
-import com.apigee.cicd.service.DeploymentInfoService
-import com.apigee.cicd.service.DefaultConfigService
+//import com.apigee.cicd.service.CIEnvInfoService
+//import com.apigee.cicd.service.DeploymentInfoService
+//import com.apigee.cicd.service.DefaultConfigService
 import com.apigee.cicd.service.FunctionalTestService
-import com.apigee.cicd.service.OrgInfoService
+//import com.apigee.cicd.service.OrgInfoService
 
 // This Model is used for non java callout Proxies
 //
@@ -167,7 +167,7 @@ def getPom() {
   return new pom();
 }
 
-def runCommand(String command) {
+/*def runCommand(String command) {
   if (!isUnix()) {
     println command
     if (command.trim().toLowerCase().startsWith("mvn")) {
@@ -192,5 +192,5 @@ def runCommand(String command) {
       sh returnStdout: true, script: command
     }
 
-  }
+  }*/
 }
