@@ -94,7 +94,7 @@ def call() {
         }
         stage("create-scm-repo") {
          sh '''
-         curl  -L -k POST -u $scmUser:$scmPassword https://api.github.com/orgs/pawankopparthi/repos -d '{"name":"'${ApiName}'","public":true}'
+         curl  -L -k POST -u $scmUser:$scmPassword https://api.github.com/orgs/pawansidgs/repos -d '{"name":"'${ApiName}'","public":true}'
          '''
     }
 
@@ -102,9 +102,9 @@ def call() {
         dir("target/${ApiName}") {
           // def defRepURL= scmCloneURL.split("@")[1]
           def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.com/pawansidgs/${Apiname}"
-          runCommand "pwd"
-          runCommand "ls -la"
-          runCommand "git init"
+          sh "pwd"
+          sh "ls -la"
+          sh "git init"
           runCommand "git add ."
           runCommand "git config --global user.email  pawan.kopparthi@hdfcbank.com"
           runCommand "git config --global user.name pawankopparthi"
