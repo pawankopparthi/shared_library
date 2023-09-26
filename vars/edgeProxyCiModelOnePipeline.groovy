@@ -57,7 +57,8 @@ def call(String branchType, String build_number) {
       }
       echo " Stating CiPipeline for branchType = ${branchType}"
 
-      Maven maven = new Maven()
+     // Maven maven = new Maven()
+	    def settings_file = "/usr/share/maven/conf/settings.xml"
       JenkinsUserUtils jenkinsUserUtils = new JenkinsUserUtils()
       /*Npm npm= new Npm()*/
       def pom = new pom(),
@@ -90,7 +91,7 @@ def call(String branchType, String build_number) {
       }
 
       dir(proxyRootDirectory) {
-	      def settings_file = "/usr/share/maven/conf/settings.xml"
+	      
 
         if (DefaultConfigService.instance.steps.unitTest) {
 		 stage('build-proxy') {
