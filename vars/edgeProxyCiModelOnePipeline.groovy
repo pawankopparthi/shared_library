@@ -58,7 +58,7 @@ def call(String branchType, String build_number) {
       echo " Stating CiPipeline for branchType = ${branchType}"
 
      // Maven maven = new Maven()
-	    def settings_file = "/usr/share/maven/conf/settings.xml"
+	    
       JenkinsUserUtils jenkinsUserUtils = new JenkinsUserUtils()
       /*Npm npm= new Npm()*/
       def pom = new pom(),
@@ -94,8 +94,9 @@ def call(String branchType, String build_number) {
 	      
 
         if (DefaultConfigService.instance.steps.unitTest) {
+		def settings_file = "/usr/share/maven/conf/settings.xml"
 		 stage('build-proxy') {
-			 def settings_file = "/usr/share/maven/conf/settings.xml"
+			 
                         sh 'mvn package -Phybrid-apiproxy -s $settings_file'
                     }
 	        /*stage('Apigee_Linting') {
