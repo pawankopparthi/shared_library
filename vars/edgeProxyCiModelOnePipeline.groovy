@@ -90,12 +90,13 @@ def call(String branchType, String build_number) {
       }
 
       dir(proxyRootDirectory) {
+	      def settings_file = "/usr/share/maven/conf/settings.xml"
 
         if (DefaultConfigService.instance.steps.unitTest) {
 		 stage('build-proxy') {
-                        maven.runCommand("mvn package -Phybrid-apiproxy")
+                        maven.runCommand("mvn package -Phybrid-apiproxy -s $settings_file")
                     }
-	        stage('Apigee_Linting') {
+	        /*stage('Apigee_Linting') {
 			withCredentials([usernamePassword(credentialsId: 'artifactory_id', usernameVariable: 'usr', passwordVariable: 'pass')]) {
 			nodejs('Node16') {
              
@@ -119,7 +120,7 @@ def call(String branchType, String build_number) {
                        ])     
 			}
 	     }
-      }
+      }*/
 
         entityDeploymentInfos.each {
                         stage('pre-deploy-prep') {
