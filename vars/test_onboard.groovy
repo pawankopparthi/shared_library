@@ -72,9 +72,9 @@ def call() {
             "-DarchetypeGroupId=com.hdfc.apigee.archetype.poc " +
             "-DarchetypeArtifactId=api-pass-through-poc " +
             "-DarchetypeVersion=1.0.0-SNAPSHOT " +
-            "-DgroupId=com.hdfc.apigee " +
+            "-DgroupId=com.hdfc.api " +
             "-DartifactId=${params.ApiName} " +
-            "-Dpackage=com.hdfc.apigee" +
+            "-Dpackage=com.hdfc.api" +
             "-DApiName=${params.ApiName} " +
             "-DinteractiveMode=false " +
          "-s /usr/share/maven/conf/settings.xml "
