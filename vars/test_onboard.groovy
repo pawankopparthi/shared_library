@@ -72,7 +72,7 @@ def call() {
             "-DarchetypeGroupId=com.hdfc.apigee.archetype.poc " +
             "-DarchetypeArtifactId=api-pass-through-poc " +
             "-DarchetypeVersion=1.0.0-SNAPSHOT " +
-            "-DgroupId=com.hdfc.api " +
+            "-DgroupId=com.hdfc.apigee " +
             "-DartifactId=${params.ApiName} " +
             "-Dpackage=com.hdfc.apigee" +
             "-DApiName=${params.ApiName} " +
