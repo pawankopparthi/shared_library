@@ -76,7 +76,10 @@ def call() {
             "-DartifactId=${params.ApiName} " +
             "-Dpackage=com.hdfc.api " +
             "-DApiName=${params.ApiName} " +
-            "-DinteractiveMode=false " 
+            "-DinteractiveMode=false " +
+         "-s /usr/share/maven/conf/settings.xml "
+         
+        
        
         
         def appUrl = "${env.BUILD_URL}ws"
@@ -91,12 +94,12 @@ def call() {
         }
         stage("create-scm-repo") {
          sh '''
-         curl  -L -k POST -u $scmUser:$scmPassword https://api.github.com/orgs/pawansidgs/repos -d '{"name":"'${ApiName}'","public":true}'
+         curl  -L -k POST -u $scmUser:$scmPassword https://api.github.com/orgs/pawankopparthi/repos -d '{"name":"'${ApiName}'","public":true}'
          '''
     }
 
       stage("Code-push") {
-        dir("target/${Apiname}") {
+        dir("target/${ApiName}") {
           // def defRepURL= scmCloneURL.split("@")[1]
           def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.com/pawansidgs/${Apiname}"
           runCommand "pwd"
