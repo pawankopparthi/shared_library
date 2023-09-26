@@ -74,7 +74,7 @@ def call() {
             "-DarchetypeVersion=1.0.0-SNAPSHOT " +
             "-DgroupId=com.hdfc.api " +
             "-DartifactId=${params.ApiName} " +
-            "-Dpackage=com.hdfc.api " +
+            "-Dpackage=com.hdfc.apigee" +
             "-DApiName=${params.ApiName} " +
             "-DinteractiveMode=false " +
          "-s /usr/share/maven/conf/settings.xml "
