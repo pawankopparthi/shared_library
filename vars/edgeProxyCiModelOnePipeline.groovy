@@ -141,7 +141,9 @@ def call(String branchType, String build_number) {
                                 echo "deploying apirpoxy"
 				                echo "${token}"
 				                echo "${bearer}"
-                                maven.runCommand("mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg=${it.org} -Denv=${it.env} -Dbearer=${token}")
+                                sh '''
+				mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg=${it.org} -Denv=${it.env} -Dbearer=${token} -s /usr/share/maven/conf/settings.xml
+    ''
                             }
                             DeploymentInfoService.instance.setApiName(artifactId)
                             DeploymentInfoService.instance.setApiVersion(version)
@@ -246,7 +248,7 @@ def call(String branchType, String build_number) {
             if (DefaultConfigService.instance.steps.release) {
                         stage('upload-artifact') {
                             withCredentials([usernameColonPassword(credentialsId: 'artifactory_id', variable: 'NEXUS')]) {
-                            maven.runCommand("mvn -X deploy")
+                            sh 'mvn -X deploy -s /usr/share/maven/conf/settings.xml'
                         }
                         }
 
