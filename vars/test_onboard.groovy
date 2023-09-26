@@ -105,20 +105,20 @@ def call() {
           sh "pwd"
           sh "ls -la"
           sh "git init"
-          runCommand "git add ."
-          runCommand "git config --global user.email  pawan.kopparthi@hdfcbank.com"
-          runCommand "git config --global user.name pawankopparthi"
-          runCommand "git commit -m intial-commit"
-          runCommand "git remote add origin ${scmCloneURLFinal}"
-          runCommand "git push -u origin master"
-          runCommand "git branch develop master"
-          runCommand "git checkout develop"
-          runCommand "git push --set-upstream origin develop"
+          sh "git add ."
+          sh "git config --global user.email  pawan.kopparthi@hdfcbank.com"
+          sh "git config --global user.name pawankopparthi"
+          sh "git commit -m intial-commit"
+          sh "git remote add origin ${scmCloneURLFinal}"
+          sh "git push -u origin master"
+          sh "git branch develop master"
+          sh "git checkout develop"
+          sh "git push --set-upstream origin develop"
 
         }
         dir("target") {
           echo "Cleaning directory after commit"
-          runCommand "rm -rf ./*"
+          sh "rm -rf ./*"
         }
       }
 
