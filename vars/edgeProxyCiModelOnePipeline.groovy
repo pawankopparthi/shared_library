@@ -94,10 +94,10 @@ def call(String branchType, String build_number) {
 	      
 
         if (DefaultConfigService.instance.steps.unitTest) {
-		def settings_file = "/usr/share/maven/conf/settings.xml"
+		
 		 stage('build-proxy') {
 			 
-                        sh 'mvn package -Phybrid-apiproxy -s $settings_file'
+                        sh 'mvn package -Phybrid-apiproxy -s /usr/share/maven/conf/settings.xml'
                     }
 	        /*stage('Apigee_Linting') {
 			withCredentials([usernamePassword(credentialsId: 'artifactory_id', usernameVariable: 'usr', passwordVariable: 'pass')]) {
