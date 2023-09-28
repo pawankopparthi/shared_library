@@ -24,20 +24,16 @@ This pipeline is used for handling branch management on the repos
  */
 def call(String operation,String repoProjectName) {
 
-    node() {
+    node('apigee') {
         deleteDir()
         def shell = new shell()
         try {
 
             withCredentials([
                     [$class          : 'UsernamePasswordMultiBinding',
-                     credentialsId   : "github_cred",
+                     credentialsId   : "pawan_token",
                      usernameVariable: 'scmUser',
-                     passwordVariable: 'scmPassword'],
-                    [$class          : 'UsernamePasswordMultiBinding',
-                     credentialsId   : "github_cred",
-                     usernameVariable: 'scmClient',
-                     passwordVariable: 'scmSecret'],
+                     passwordVariable: 'scmPassword'],        
             ])
 
                     {
