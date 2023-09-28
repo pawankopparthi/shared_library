@@ -56,8 +56,10 @@ void createFeature(String name, String api) {
     log.fatal "Feature : ${name} exist. Stopping Job "
   }
 
-  runGitflowCommands("-DallowSnapshots=true -DfeatureName=${name}  ",
-          " jgitflow:feature-start")
+  sh '''
+  mvn "-DallowSnapshots=true -DfeatureName=${name}  -s /usr/share/maven/settings,xml",
+          " jgitflow:feature-start"
+          '''
 }
 
 void finishFeature(String name, String api) {
