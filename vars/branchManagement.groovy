@@ -151,7 +151,7 @@ def isBuildCauseUserAction() {
     return false
 }
 
-def getPom() { return new pom(); }
+/*def getPom() { return new pom(); }
 
 def runCommand(String command) {
     if (!isUnix()) {
@@ -174,6 +174,6 @@ def runCommand(String command) {
             sh returnStdout: true, script: command
         }
 
-    }
+    }*/
 }
 
