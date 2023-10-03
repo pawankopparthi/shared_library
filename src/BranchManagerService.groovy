@@ -167,10 +167,12 @@ void createRelease(String api ) {
     log.fatal "A current Release exist. Finish the Release before starting a new one. " +
             "Stopping Job "
   }
-  sh '''
+ /* sh '''
   "-DallowSnapshots=true -DautoVersionSubmodules=true " +
           "-DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true" -s /usr/share/maven/settings.xml, "jgitflow:release-start -X" 
-  '''
+  '''*/
+  runGitflowCommands(-DallowSnapshots=true -DautoVersionSubmodules=true " +
+          "-DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true" -s /usr/share/maven/settings.xml, "jgitflow:release-start -X" )
 
 }
 
