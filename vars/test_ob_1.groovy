@@ -72,7 +72,7 @@ def call() {
             "-DarchetypeGroupId=com.hdfc.api.archetype " +
             "-DarchetypeArtifactId=apigee " +
             "-DarchetypeVersion=1.0.0-SNAPSHOT " +
-            "-DgroupId=com.hdfc.api " +
+            "-DgroupId=com-hdfc-api " +
             "-DartifactId=${params.ApiName} " +
             "-Dpackage=com.hdfc.api " +
             "-DApiName=${params.ApiName} " +
