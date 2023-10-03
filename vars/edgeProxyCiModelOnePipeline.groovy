@@ -97,7 +97,7 @@ def call(String branchType, String build_number) {
 		
 		 stage('build-proxy') {
 			 
-                        sh 'mvn package -Phybrid-apiproxy -s /usr/share/maven/conf/settings.xml'
+                        sh 'mvn package -Phybrid-apiproxy'
                     }
 	        /*stage('Apigee_Linting') {
 			withCredentials([usernamePassword(credentialsId: 'artifactory_id', usernameVariable: 'usr', passwordVariable: 'pass')]) {
