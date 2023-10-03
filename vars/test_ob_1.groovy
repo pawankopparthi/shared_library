@@ -69,8 +69,8 @@ def call() {
         def settings_file = "/usr/share/maven/conf/settings.xml"
 
        def exampleApi = "mvn archetype:generate " +
-            "-DarchetypeGroupId=com.hdfc.api.archetype " +
-            "-DarchetypeArtifactId=apigee " +
+            "-DarchetypeGroupId=com.hdfc.apigee.archetype.poc " +
+            "-DarchetypeArtifactId=api-pass-through-poc " +
             "-DarchetypeVersion=1.0.0-SNAPSHOT " +
             "-DgroupId=com-hdfc-api " +
             "-DartifactId=${params.ApiName} " +
