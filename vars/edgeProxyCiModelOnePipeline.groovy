@@ -139,10 +139,10 @@ def call(String branchType, String build_number) {
 
                             withCredentials([file(credentialsId: it.org, variable: 'serviceAccount')]) {
                                 echo "deploying apirpoxy"
-				                echo "${token}"
-				                echo "${bearer}"
+				               // echo "${token}"
+				               // echo "${bearer}"
                                 sh '''
-				mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg=${it.org} -Denv=${it.env} -Dbearer=${token} -s /usr/share/maven/conf/settings.xml
+				mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg=${it.org} -Denv=${it.env} -Dfile=${serviceAccount} -s /usr/share/maven/conf/settings.xml
     '''
                             }
                             DeploymentInfoService.instance.setApiName(artifactId)
