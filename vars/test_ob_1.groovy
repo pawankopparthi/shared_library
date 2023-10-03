@@ -69,8 +69,8 @@ def call() {
         def settings_file = "/usr/share/maven/conf/settings.xml"
 
        def exampleApi = "mvn archetype:generate " +
-            "-DarchetypeGroupId=com.hdfc.apigee.archetype.poc " +
-            "-DarchetypeArtifactId=api-pass-through-poc " +
+            "-DarchetypeGroupId=com.hdfc.api.archetype " +
+            "-DarchetypeArtifactId=apigee " +
             "-DarchetypeVersion=1.0.0-SNAPSHOT " +
             "-DgroupId=com.hdfc.api " +
             "-DartifactId=${params.ApiName} " +
@@ -101,7 +101,7 @@ def call() {
       stage("Code-push") {
         dir("target/${ApiName}") {
           // def defRepURL= scmCloneURL.split("@")[1]
-          def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.com/pawansidgs/${Apiname}"
+          def scmCloneURLFinal = "https://${env.scmUser}:${env.scmPassword}@github.com/pawansidgs/${ApiName}"
           sh "pwd"
           sh "ls -la"
           sh "git init"
