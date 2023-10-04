@@ -144,7 +144,7 @@ def call(String branchType, String build_number) {
 				               // echo "${token}"
 				               // echo "${bearer}"
                              sh '''
-    mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg=$'{it.org}' -Denv=$'{it.env}' -Dfile=$'{serviceAccount}' -s /usr/share/maven/conf/settings.xml
+    mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg=$"{it.org}" -Denv=$"{it.env}" -Dfile=$"{serviceAccount}" -s /usr/share/maven/conf/settings.xml
 '''
 
 				    /* sh '''
