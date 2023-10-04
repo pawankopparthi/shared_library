@@ -32,8 +32,8 @@ private runGitflowCommands(String commands, String goal, String settingsXmlPath)
 
       String commonCommands = "-B -P gitflow " +
               "-DpushFeatures=true " +
-              "-DscmUsername=${env.user} " +
-              "-DscmPassword=${env.password}"
+              "-DscmUsername=${env.scmUser} " +
+              "-DscmPassword=${env.scmPassword}"
 
       Maven maven = new Maven()
       maven.runMaven(" ${commands} ${commonCommands} ", goal)
@@ -171,7 +171,7 @@ void createRelease(String api ) {
   mvn -DallowSnapshots=true -DautoVersionSubmodules=true -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true jgitflow:release-start -X -s /usr/share/maven/conf/settings.xml
 
   '''*/
- sh  "mvn -s /usr/share/maven/conf/settings.xml runGitflowCommands -DallowSnapshots=true -DautoVersionSubmodules=true -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true jgitflow:release-start -X"
+ sh  "mvn -s /usr/share/maven/conf/settings.xml -DscmUsername=pawankopparthi -DscmPassword=pawanreddy68 -DallowSnapshots=true -DautoVersionSubmodules=true -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true jgitflow:release-start -X"
 
   // runGitflowCommands("-DallowSnapshots=true -DautoVersionSubmodules=true -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true ", "jgitflow:release-start -X" ) -s /usr/share/maven/conf/settings.xml
   //mvn "-DallowSnapshots=true -DautoVersionSubmodules=true  -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true", "jgitflow:release-start -X" 
