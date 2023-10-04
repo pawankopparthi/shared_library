@@ -171,7 +171,7 @@ void createRelease(String api ) {
   mvn -DallowSnapshots=true -DautoVersionSubmodules=true -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true jgitflow:release-start -X -s /usr/share/maven/conf/settings.xml
 
   '''*/
-  runGitflowCommands("-DallowSnapshots=true -DautoVersionSubmodules=true -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true  ", "jgitflow:release-start -X ", -s '/usr/share/maven/conf/settings.xml')
+  runGitflowCommands("-DallowSnapshots=true -DautoVersionSubmodules=true -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true  ", "jgitflow:release-start -X ", -s /usr/share/maven/conf/settings.xml)
   //mvn "-DallowSnapshots=true -DautoVersionSubmodules=true  -DreleaseBranchVersionSuffix=RC1 -DupdateDependencies=true", "jgitflow:release-start -X" 
 
 }
