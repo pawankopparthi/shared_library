@@ -141,9 +141,13 @@ def call(String branchType, String build_number) {
                                 echo "deploying apirpoxy"
 				               // echo "${token}"
 				               // echo "${bearer}"
-                                sh '''
+                             sh '''
+    mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg="${it.org}" -Denv="${it.env}" -Dfile="$serviceAccount" -s /usr/share/maven/conf/settings.xml
+'''
+
+				    /* sh '''
 				mvn -X package apigee-enterprise:deploy -Phybrid-apiproxy -Dorg="${it.org}" -Denv="${it.env}" -Dfile=$serviceAccount -s /usr/share/maven/conf/settings.xml
-    '''
+    '''*/
                             }
                             DeploymentInfoService.instance.setApiName(artifactId)
                             DeploymentInfoService.instance.setApiVersion(version)
