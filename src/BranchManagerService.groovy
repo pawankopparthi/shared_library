@@ -10,7 +10,7 @@ import groovy.transform.Field
 @Field LogUtils log = new LogUtils()
 
 
-private runGitflowCommands(String commands, String goal, String settingsXmlPath) {
+private runGitflowCommands(String commands, String goal) {
 
   def cred = utils.getConfig().scm.credential
   echo "Using Credential : ${cred.toString()}"
