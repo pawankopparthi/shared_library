@@ -30,7 +30,7 @@ def call() {
 
     withCredentials([
       [$class: 'UsernamePasswordMultiBinding',
-        credentialsId: "pawan_token",
+        credentialsId: "new_GitHub_ID",
         usernameVariable: 'scmUser',
         passwordVariable: 'scmPassword'
       ]
